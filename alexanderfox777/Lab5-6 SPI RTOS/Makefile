@@ -99,6 +99,8 @@ help: .help-post
 .help-post: .help-impl
 # Add your post 'help' code here...
 
+pdf:
+	make -C docs/latex/
 
 
 # include project implementation makefile

@@ -1,0 +1,161 @@
+\hypertarget{user_8c}{}\section{src/user.c File Reference}
+\label{user_8c}\index{src/user.\+c@{src/user.\+c}}
+
+
+initialization and system functions  
+
+
+{\ttfamily \#include $<$xc.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$sys/attribs.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Free\+R\+T\+O\+S.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}task.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}semphr.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}user.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}O\+L\+E\+D.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Oled\+Char.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Oled\+Grph.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}U\+A\+R\+T.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Include dependency graph for user.\+c\+:
+% FIG 0
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{user_8c_a4fcc42e3f93581eb0459cb359adebc54}{X\+\_\+\+M\+AX}~128
+\item 
+\#define \hyperlink{user_8c_a7296ba9091427ae54bab4bcbb1dc87e1}{Y\+\_\+\+M\+AX}~28
+\item 
+\#define \hyperlink{user_8c_ac8a2c1cb6d6083e356089bf3a2fb456f}{X\+\_\+center}~64
+\item 
+\#define \hyperlink{user_8c_a439d00966488f3ee07222ca7d1161736}{Y\+\_\+center}~14
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{user_8c_afe7a49ab9879bd7044b35eb779f30712}{Init\+G\+P\+IO} (void)
+\begin{DoxyCompactList}\small\item\em G\+P\+IO initialization for board, Initialization for buttons and L\+E\+Ds Disabling analog mode and setting pins directions. \end{DoxyCompactList}\item 
+void \hyperlink{user_8c_ac2d45fa757a52e8dd2e54677cdb20f9b}{Init\+B\+I\+O\+S\+G\+P\+IO} (void)
+\begin{DoxyCompactList}\small\item\em G\+P\+IO initialization for schield, Initialization for buttons and L\+E\+Ds Disabling analog mode and setting pins directions. \end{DoxyCompactList}\item 
+void \hyperlink{user_8c_addc0a16fa099430e2337628a38764b67}{Init\+App} (void)
+\begin{DoxyCompactList}\small\item\em App initialization, Calling initialization functions for G\+P\+IO and O\+L\+ED Basic O\+L\+ED configuration. \end{DoxyCompactList}\item 
+void \hyperlink{user_8c_a902a64ca782182bd7360b69639f74063}{Task1} (void $\ast$pv\+Parameters)
+\begin{DoxyCompactList}\small\item\em Task \#1, takes semaphore and than outputs text to the O\+L\+ED. \end{DoxyCompactList}\item 
+void \hyperlink{user_8c_af01c7f41ef35453d7c0e896db918be88}{Task2} (void $\ast$pv\+Parameters)
+\begin{DoxyCompactList}\small\item\em Task \#2, takes semaphore and than outputs text to the O\+L\+ED. \end{DoxyCompactList}\item 
+void \hyperlink{user_8c_af4c904c48cffb15c04e3c5419020cebb}{Delay\+Ms} (int t)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+volatile int \hyperlink{user_8c_aad36a2386ed541c9f46bb04d6058a43f}{n}
+\item 
+volatile int \hyperlink{user_8c_a59b5f70d95f641564c5199c696b87cfd}{i} =0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+initialization and system functions 
+
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{user_8c_ac8a2c1cb6d6083e356089bf3a2fb456f}\label{user_8c_ac8a2c1cb6d6083e356089bf3a2fb456f}} 
+\index{user.\+c@{user.\+c}!X\+\_\+center@{X\+\_\+center}}
+\index{X\+\_\+center@{X\+\_\+center}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{X\+\_\+center}{X\_center}}
+{\footnotesize\ttfamily \#define X\+\_\+center~64}
+
+\mbox{\Hypertarget{user_8c_a4fcc42e3f93581eb0459cb359adebc54}\label{user_8c_a4fcc42e3f93581eb0459cb359adebc54}} 
+\index{user.\+c@{user.\+c}!X\+\_\+\+M\+AX@{X\+\_\+\+M\+AX}}
+\index{X\+\_\+\+M\+AX@{X\+\_\+\+M\+AX}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{X\+\_\+\+M\+AX}{X\_MAX}}
+{\footnotesize\ttfamily \#define X\+\_\+\+M\+AX~128}
+
+\mbox{\Hypertarget{user_8c_a439d00966488f3ee07222ca7d1161736}\label{user_8c_a439d00966488f3ee07222ca7d1161736}} 
+\index{user.\+c@{user.\+c}!Y\+\_\+center@{Y\+\_\+center}}
+\index{Y\+\_\+center@{Y\+\_\+center}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{Y\+\_\+center}{Y\_center}}
+{\footnotesize\ttfamily \#define Y\+\_\+center~14}
+
+\mbox{\Hypertarget{user_8c_a7296ba9091427ae54bab4bcbb1dc87e1}\label{user_8c_a7296ba9091427ae54bab4bcbb1dc87e1}} 
+\index{user.\+c@{user.\+c}!Y\+\_\+\+M\+AX@{Y\+\_\+\+M\+AX}}
+\index{Y\+\_\+\+M\+AX@{Y\+\_\+\+M\+AX}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{Y\+\_\+\+M\+AX}{Y\_MAX}}
+{\footnotesize\ttfamily \#define Y\+\_\+\+M\+AX~28}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{user_8c_af4c904c48cffb15c04e3c5419020cebb}\label{user_8c_af4c904c48cffb15c04e3c5419020cebb}} 
+\index{user.\+c@{user.\+c}!Delay\+Ms@{Delay\+Ms}}
+\index{Delay\+Ms@{Delay\+Ms}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{Delay\+Ms()}{DelayMs()}}
+{\footnotesize\ttfamily void Delay\+Ms (\begin{DoxyParamCaption}\item[{int}]{t }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{user_8c_addc0a16fa099430e2337628a38764b67}\label{user_8c_addc0a16fa099430e2337628a38764b67}} 
+\index{user.\+c@{user.\+c}!Init\+App@{Init\+App}}
+\index{Init\+App@{Init\+App}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{Init\+App()}{InitApp()}}
+{\footnotesize\ttfamily void Init\+App (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+App initialization, Calling initialization functions for G\+P\+IO and O\+L\+ED Basic O\+L\+ED configuration. 
+
+\mbox{\Hypertarget{user_8c_ac2d45fa757a52e8dd2e54677cdb20f9b}\label{user_8c_ac2d45fa757a52e8dd2e54677cdb20f9b}} 
+\index{user.\+c@{user.\+c}!Init\+B\+I\+O\+S\+G\+P\+IO@{Init\+B\+I\+O\+S\+G\+P\+IO}}
+\index{Init\+B\+I\+O\+S\+G\+P\+IO@{Init\+B\+I\+O\+S\+G\+P\+IO}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{Init\+B\+I\+O\+S\+G\+P\+I\+O()}{InitBIOSGPIO()}}
+{\footnotesize\ttfamily void Init\+B\+I\+O\+S\+G\+P\+IO (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+G\+P\+IO initialization for schield, Initialization for buttons and L\+E\+Ds Disabling analog mode and setting pins directions. 
+
+\mbox{\Hypertarget{user_8c_afe7a49ab9879bd7044b35eb779f30712}\label{user_8c_afe7a49ab9879bd7044b35eb779f30712}} 
+\index{user.\+c@{user.\+c}!Init\+G\+P\+IO@{Init\+G\+P\+IO}}
+\index{Init\+G\+P\+IO@{Init\+G\+P\+IO}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{Init\+G\+P\+I\+O()}{InitGPIO()}}
+{\footnotesize\ttfamily void Init\+G\+P\+IO (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+G\+P\+IO initialization for board, Initialization for buttons and L\+E\+Ds Disabling analog mode and setting pins directions. 
+
+\mbox{\Hypertarget{user_8c_a902a64ca782182bd7360b69639f74063}\label{user_8c_a902a64ca782182bd7360b69639f74063}} 
+\index{user.\+c@{user.\+c}!Task1@{Task1}}
+\index{Task1@{Task1}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{Task1()}{Task1()}}
+{\footnotesize\ttfamily void Task1 (\begin{DoxyParamCaption}\item[{void $\ast$}]{pv\+Parameters }\end{DoxyParamCaption})}
+
+
+
+Task \#1, takes semaphore and than outputs text to the O\+L\+ED. 
+
+\mbox{\Hypertarget{user_8c_af01c7f41ef35453d7c0e896db918be88}\label{user_8c_af01c7f41ef35453d7c0e896db918be88}} 
+\index{user.\+c@{user.\+c}!Task2@{Task2}}
+\index{Task2@{Task2}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{Task2()}{Task2()}}
+{\footnotesize\ttfamily void Task2 (\begin{DoxyParamCaption}\item[{void $\ast$}]{pv\+Parameters }\end{DoxyParamCaption})}
+
+
+
+Task \#2, takes semaphore and than outputs text to the O\+L\+ED. 
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{user_8c_a59b5f70d95f641564c5199c696b87cfd}\label{user_8c_a59b5f70d95f641564c5199c696b87cfd}} 
+\index{user.\+c@{user.\+c}!i@{i}}
+\index{i@{i}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{i}{i}}
+{\footnotesize\ttfamily volatile int i =0}
+
+\mbox{\Hypertarget{user_8c_aad36a2386ed541c9f46bb04d6058a43f}\label{user_8c_aad36a2386ed541c9f46bb04d6058a43f}} 
+\index{user.\+c@{user.\+c}!n@{n}}
+\index{n@{n}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{n}{n}}
+{\footnotesize\ttfamily volatile int n}
+

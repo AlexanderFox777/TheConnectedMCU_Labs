@@ -1,3 +1,7 @@
+/**
+ *  \file
+ *  \brief contains definitions, macroses and function prototypes
+ */
 #ifndef USER_H
 #define USER_H
 

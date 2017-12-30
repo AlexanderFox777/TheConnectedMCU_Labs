@@ -1,8 +1,8 @@
-// *****************************************************************************
-// *****************************************************************************
-// Section: Included Files 
-// *****************************************************************************
-// *****************************************************************************
+/**
+     *\file
+     *\brief initialization and system functions
+*/
+
 #include <xc.h>          /* Defines special function registers, CP0 regs  */
 #include <stdint.h>          /* For uint32_t definition                       */
 #include <sys/attribs.h>
@@ -24,22 +24,13 @@
 #define X_center 64
 #define Y_center 14
 
-
-// *****************************************************************************
-// *****************************************************************************
-// Section: Global Data Definitions
-// *****************************************************************************
-// *****************************************************************************
-
-
-/******************************************************************************/
-/* User Functions                                                             */
-
-/******************************************************************************/
-
-volatile int x,y,x_factor,y_factor,y_kill;
 volatile    int n, i=0;
 
+/*!
+    * \brief GPIO initialization for board,
+    * Initialization for buttons and LEDs
+    * Disabling analog mode and setting pins directions
+*/  
 void InitGPIO(void) {
     // LED output
     // Disable analog mode for G6
@@ -71,6 +62,11 @@ void InitGPIO(void) {
     TRISAbits.TRISA4 = 1;
 }
 
+/*!
+    * \brief GPIO initialization for schield,
+    * Initialization for buttons and LEDs
+    * Disabling analog mode and setting pins directions
+*/  
 void InitBIOSGPIO(void) {
     /* Setup functionality and port direction */
     // LED outputs
@@ -105,13 +101,13 @@ void InitBIOSGPIO(void) {
     TRISAbits.TRISA14 = 1;
     TRISCbits.TRISC1 = 1; 
     
-    /*
-    #define BIOS_SW1_PORT_BIT       PORTEbits.RE8
-#define BIOS_SW2_PORT_BIT       PORTEbits.RE9
-#define BIOS_SW3_PORT_BIT       PORTAbits.RA14
-#define BIOS_SW4_PORT_BIT       PORTCbits.RC1*/
-}
 
+}
+/*!
+    * \brief App initialization, 
+    * Calling initialization functions for GPIO and OLED
+    * Basic OLED configuration
+*/ 
 void InitApp(void) {
     // Initialize peripherals
     InitGPIO();
@@ -120,11 +116,12 @@ void InitApp(void) {
     OledHostInit();
     OledDspInit();
     OledDvrInit();
-    
-    // TODO: Add UART4 Initialization call here
-    UART4_init();
 }
 
+/*!
+    * \brief Task #1,
+    * takes semaphore and than outputs text to the OLED
+*/ 
 void Task1(void * pvParameters) {
     
     uint8_t word[] =  "No-winIwinyou";
@@ -169,6 +166,10 @@ void Task1(void * pvParameters) {
     }
 }
 
+/*!
+    * \brief Task #2,
+    * takes semaphore and than outputs text to the OLED
+*/ 
 void Task2(void * pvParameters) {
     int n=0; 
    

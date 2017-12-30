@@ -112,7 +112,7 @@
 
 /*-----------------------------------------------------------*/
 
-/*
+/*!
  * Set up the hardware ready to run this demo.
  */
 static void prvSetupHardware( void );
@@ -121,7 +121,7 @@ static void CreateTaskSyncStructures(void);
 
 /*-----------------------------------------------------------*/
  
-/*
+/*!
  * Create the demo tasks then start the scheduler.
  */
 int main( void )
